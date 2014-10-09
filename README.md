@@ -5,4 +5,4 @@ The Iowa State University (ISU) Geospatial Technology Program partners with Exte
 
 This repository is designed to host web mapping scripts described in the GIS Task Sheet series. To fnd a full list of task sheets, visit: http://www.extension.iastate.edu/communities/gis/quicktasksheets
 
-Subscribe to the ISU Geospatial Technology Newsletter If you would like to stay notified on upcoming trainings, new GIS task sheets and other Geospatial Technology Program news.
+<a href="http://www.extension.iastate.edu/communities/GIS/subscribe">Subscribe</a> to the ISU Geospatial Technology Newsletter If you would like to stay notified on upcoming trainings, new GIS task sheets and other Geospatial Technology Program news.
