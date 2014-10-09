@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style type="text/css">
+        html,
+        body,
+        #map-canvas {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .tt {
+            color: Red;
+        }
+    </style>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTD-oN-MCf2NhMjkfkhLaAIZHmJdsJ-Uk">
+    </script>
+    <script type="text/javascript">
+        var map;
+
+        function initialize() {
+                var mapOptions = {
+                    center: {
+                        lat: 42,
+                        lng: -93
+                    },
+                    zoom: 8
+                };
+
+                map = new google.maps.Map(document.getElementById('map-canvas'),
+                    mapOptions);
+
+
+                // To add the marker to the map, use the 'map' property            
+                fortDodge = new google.maps.Marker({
+                    position: new google.maps.LatLng(42.50, -94.17),
+                    map: map,
+                    title: "Fort Dodge, Iowa"
+                });
+
+                ames = new google.maps.Marker({
+                    position: new google.maps.LatLng(42.02, -93.62),
+                    map: map,
+                    title: "Ames, Iowa"
+                });
+
+
+                var ames_html_text = "<span class='tt'>This is Ames, Iowa</span><br> " +
+                    "Home of the ISU Cyclones.";
+
+                var infowindow = new google.maps.InfoWindow({
+                    maxWidth: 200,
+                    disableAutoPan: false,
+                    content: ames_html_text
+                });
+
+
+                google.maps.event.addListener(ames, 'click', function() {
+                    infowindow.open(map, ames);
+                });
+
+
+                //uncomment to remove ames or change its tooltip title.
+                //ames.setMap(null);
+                //ames.title = 'Iowa State University';
+
+            } //close initialize function 
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head>
+
+<body>
+    <div id="map-canvas"></div>
+</body>
+
+</html>
