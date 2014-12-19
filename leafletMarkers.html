@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	
+    <head>
+        <meta name="description" content="Leaflet API - Adding a Marker" />
+		<title>Leaflet API: Adding a Marker</title>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+		<style>
+			#map { 
+				height: 400px; 
+				width: 400px;
+				margin: 0; 
+				padding: 0; 
+			}
+		</style>
+		
+    </head>
+    
+    <body>
+        <div id="map"></div>
+		
+		<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+		
+		<script >
+           var map = L.map('map').setView([43, -93], 10);
+
+		  // add an OpenStreetMap tile layer
+		  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+		      attribution: 'The map contributors',
+		      maxZoom: 18
+		  }).addTo(map);
+			
+			var marker1 = L.marker([43, -93]).addTo(map);
+						
+			var marker2 = L.marker([43.05, -93.1]).addTo(map);
+			
+			//marker2.bindPopup("marker 2 here").openPopup();
+			
+			//marker1.bindPopup("<b>Hello Leaflet Mappers</b>.").openPopup();	
+			
+			marker2.bindPopup("marker 2 here");
+			
+			marker1.bindPopup("<b>Hello Leaflet Mappers</b>.");
+			
+			//this marker can be dragged and will display a tooltip
+			
+			var marker3 = L.marker([43.12, -93.1], {
+				draggable: true,
+				title: 'a tooltip'
+			   }).addTo(map);	
+			
+		</script>
+		
+    </body>
+
+</html>
