@@ -1,0 +1,62 @@
+var map = L.map('map').setView([42.505, -93.5], 11);
+
+
+// add an OpenStreetMap tile layer
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18
+}).addTo(map);
+
+
+
+//regular circle
+var circle1 = L.circle([42.53, -93.50], 1000).addTo(map);
+
+
+var circle2 = L.circle([42.50, -93.50], 1000, {
+	stroke: false, //boolean for stroke - true/false
+	color: 'red', //If stroke enabled, the color
+	opacity: 1,  //a value between 0 and 1
+	weight: 30, //stroke weight
+	fill: true, //boolean for fill - true/false
+    fillColor: '#FF0000', //HEX values can also be used to specify color
+	fillOpacity: 1,  //opacity 0 - 1 of fill
+}).addTo(map);
+
+
+var circle3 = L.circle([42.47, -93.50], 1000, {
+	stroke: true, //boolean for stroke - true/false
+	color: 'yellow', //If stroke enabled, the color
+	opacity: 1,  //a value between 0 and 1
+	weight: 10, //stroke weight
+	fill: true, //boolean for fill - true/false
+    fillColor: 'red', //HEX values can also be used to specify color
+	fillOpacity: 1,  //opacity 0 - 1 of fill
+}).addTo(map);
+
+
+//CircleMarker
+var cm1 = new L.circleMarker([42.53, -93.42],{
+	radius: 20,
+	stroke: true,
+	color: 'black',
+	opacity: 1,
+	weight: 1,
+	fill: true,
+	fillColor: "green",
+	fillOpacity: 0.3
+}).addTo(map);
+
+
+
+//CircleMarker
+var cm2 = new L.circleMarker([42.47, -93.42],{
+	radius: 20,
+	stroke: true,
+	color: 'black',
+	opacity: 1,
+	weight: 1,
+	fill: false,
+	fillColor: "green",
+	fillOpacity: 0.3
+}).addTo(map);
