@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="description" content="Leaflet API - Adding a Custom Marker and Div Icon" />
+    <title>Leaflet API: Custom icons</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+
+</head>
+
+<style>
+    #map {
+        height: 400px;
+        width: 400px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .leaflet-div-icon {
+        background-color: yellow;
+        text-align: center;
+    }
+    
+    .my-div-icon {
+        background-color: rgba(255, 255, 255, 0.0);
+        border: none;
+        height: 25px;
+        text-align: left;
+        line-height: 25px;
+    }
+</style>
+
+<body>
+    <div id="map"></div>
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+    <script>
+        var greenIcon = L.icon({
+            iconUrl: 'http://maps.google.com/mapfiles/arrow.png',
+            shadowUrl: 'http://maps.google.com/mapfiles/arrowshadow.png',
+            iconSize: [39, 34], // size of the icon
+            shadowSize: [39, 34], // size of the shadow
+            iconAnchor: [10, 34], // icon pixel which will correspond
+            					  // to the marker's location relative
+            					  // to its top left corner of image
+            shadowAnchor: [10, 34], // the same for the shadow
+            popupAnchor: [1, -35] // point from which the popup should
+               					   // open relative to the iconAnchor
+        });
+
+
+        var map = L.map('map').setView([43, -93], 10);
+
+        // add an OpenStreetMap tile layer
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: 'The map contributors',
+            maxZoom: 18
+        }).addTo(map);
+
+
+        var marker1 = L.marker([43, -93], {
+            icon: greenIcon,
+            title: "highlight title",
+        }).addTo(map);
+
+        marker1.bindPopup("<b>Hello Leaflet Mappers</b>.");
+
+    </script>
+
+</body>
+
+</html>
