@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="description" content="Leaflet API - Adding a Custom Marker and Div Icon" />
+    <title>Leaflet API: Custom icons</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+
+</head>
+<style>
+    #map {
+        height: 400px;
+        width: 400px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .leaflet-div-icon {
+        background-color: yellow;
+        text-align: center;
+    }
+    
+    .my-div-icon {
+        background-color: rgba(255, 255, 255, 0.0);
+        border: none;
+        height: 25px;
+        text-align: left;
+        line-height: 25px;
+    }
+</style>
+
+<body>
+    <div id="map"></div>
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+    <script>
+        var myDivIcon1 = L.divIcon({
+            iconSize: new L.Point(40, 20),
+            iconAnchor: new L.Point(20, 20),
+            html: 'ABC',
+            className: 'leaflet-div-icon'
+        });
+
+
+        var map = L.map('map').setView([43, -93], 10);
+
+        // add an OpenStreetMap tile layer
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: 'The map contributors',
+            maxZoom: 18
+        }).addTo(map);
+
+
+
+        var marker1 = L.marker([43.05, -93.1], {
+            icon: myDivIcon1,
+        }).addTo(map).bindPopup('I am marker 1.');
+    </script>
+
+</body>
+
+</html>
