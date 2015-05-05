@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	
+    <head>
+		<title>Leaflet API: Adding a Marker from geoJSON</title>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+		<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		
+		<script src="airports.js"></script>
+	
+<style>
+#map {
+	width: 400px;
+	height: 600px;
+	margin: 0; 
+	padding: 0; 
+}
+</style>
+		
+    </head>
+    
+    <body>
+        <div id="map"></div>
+        
+        
+        <script>
+	        console.clear();
+
+var map = L.map('map').setView([43.4, -93], 6);
+
+// add an OpenStreetMap tile layer
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	attribution: 'Iowa State University Extension and Outreach',
+	maxZoom: 18
+}).addTo(map);
+
+//L.geoJson(airports).addTo(map);
+
+
+
+function addPopups(feature, layer) {
+    layer.bindPopup("Name: "+feature.properties.FACILITY_N + "<BR> City: "+feature.properties.CITY)
+}
+
+
+
+L.geoJson(airports, {
+	onEachFeature: 
+	addPopups,
+	filter: function(feature, layer) {	    
+	    //FACILITY_T == 'HELIPORT'
+	    //OWNER_TYPE == 'PU'
+	    if (feature.properties.FACILITY_T == 'HELIPORT') {
+        	return 'true'
+        }
+    }
+	
+ 
+}).addTo(map);
+
+
+
+ </script>
