@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Leaflet – Markers as content styled circle markers</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script src="airports.js"></script>
+
+    <style>
+        #map {
+            width: 400px;
+            height: 600px;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <script>
+        //define data
+        myJSON = {
+            "type": "FeatureCollection",
+            "features": [{
+                "type": "Feature",
+                "properties": {
+                    "specialValue": 20,
+                    "specialLabel": "rock"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-93.1,
+                        41.3
+                    ]
+                }
+            }, {
+                "type": "Feature",
+                "properties": {
+                    "specialValue": 30,
+                    "specialLabel": "tree"
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-93.15,
+                        41.33
+                    ]
+                }
+            }, {
+                "type": "Feature",
+                "properties": {
+                    "specialValue": 25,
+                    "specialLabel": ""
+                },
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-93.17089412184654,
+                        41.37359421602684
+                    ]
+                }
+            }]
+        };
+
+
+
+        //Generate Map
+        var map = L.map('map').setView([41.3, -93.1], 11);
+
+        // add an OpenStreetMap tile layer
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy;OpenStreetMap, Iowa State University',
+            maxZoom: 18
+        }).addTo(map);
+
+
+        //set color of marker based on feature value
+        function getColor(d) {
+            return d == 'rock' ? 'orange' :
+                d == 'tree' ? "#0000ff" : //blue
+                "#FFFFFF"; //white
+        }
+
+
+        //load data
+        L.geoJson(myJSON, {
+            pointToLayer: function(feature, latlng) {
+                return L.circleMarker(latlng, {
+                    //radius: 8, //expressed in pixels
+                    radius: feature.properties.specialValue,
+                    //fillColor: "#ff7800",
+                    fillColor: getColor(feature.properties.specialLabel),
+                    color: "#000", //black outline
+                    weight: 1, //outline width
+                    opacity: 1, //line opacity
+                    fillOpacity: 0.8
+                });
+            }
+        }).addTo(map);
+    </script>
+
+</body>
+
+
+</html>
