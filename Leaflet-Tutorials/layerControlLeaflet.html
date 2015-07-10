@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Leaflet API: Layer Control</title>
+    <meta name="description" content="Leaflet tasksheet layer control elements" />
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <style>
+        html,
+        body,
+        #map {
+            height: 480px;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="map"></div>
+
+
+    <script>
+        //Base Layers
+        var OSM = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 18
+        });
+
+        var MapQuestOpen_Aerial = L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
+            attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency',
+            subdomains: '1234'
+        });
+
+        var nexrad = new L.tileLayer.wms("http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi", {
+            layers: 'nexrad-n0r',
+            format: 'image/png',
+            transparent: true,
+            attribution: "Weather data &copy; 2015 IEM Nexrad"
+        });
+
+
+
+
+        //------ Cities
+        var riceLake = L.marker([45.498333, -91.738889]).bindPopup('Rice Lake, WI.');
+        var ames = L.marker([42.034722, -93.62]).bindPopup('Ames, IA');
+
+
+
+        //Alerts
+        var alert1 = L.polygon([
+            [45.825833, -91.891111],
+            [45.535833, -92.023333],
+            [45.498333, -92.638889],
+            [46.498333, -92.638889]
+        ], {
+            color: 'yellow',
+            fillColor: 'yellow',
+            fillOpacity: 0.6
+        });
+
+
+        var alert2 = L.polygon([
+            [45.825833, -91.891111],
+            [45.498333, -91.738889],
+            [45.535833, -92.023333]
+        ], {
+            color: 'red',
+            fillColor: 'red',
+            fillOpacity: 0.5
+        });
+
+        //feature groups
+        var cities = L.layerGroup([riceLake, ames]);
+
+        var alerts = L.layerGroup([alert1, alert2]);
+
+
+        //create the map
+        var map = L.map('map', {
+            center: new L.LatLng(44, -91),
+            zoom: 6,
+            layers: [OSM, nexrad, cities, alerts]
+        });
+
+
+
+        //layer control
+        var baseMaps = {
+            "OpenStreetMap": OSM,
+            "MapQuestOpen Aerial": MapQuestOpen_Aerial
+        };
+
+        var overlayMaps = {
+            "Cities": cities,
+            "Alerts": alerts,
+            "Radar": nexrad
+
+        };
+
+        L.control.layers(baseMaps, overlayMaps).addTo(map);
+    </script>
