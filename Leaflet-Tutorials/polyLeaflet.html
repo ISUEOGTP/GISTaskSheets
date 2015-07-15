@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Leaflet API: Polyline and Polygon</title>
+    <meta name="description" content="Leaflet tasksheet layer control elements" />
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <style>
+        html,
+        body,
+        #map {
+            height: 480px;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="map"></div>
+
+
+    <script>
+        var map = L.map('map').setView([43, -93], 10);
+
+        // add an OpenStreetMap tile layer
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: 'The map contributors',
+            maxZoom: 18
+        }).addTo(map);
+
+        //Syntax option 1 for Geographic Coordinates
+        //var polyline = L.polyline([[43.01, -93.1],[43.1, -93.18],[43.05, -93.0]], {color: 'green'}).addTo(map);
+
+        //Syntax option 2 for Geographic Coordinates
+        /*
+        var latlngs = [
+        	new L.LatLng(43.01, -93.1),
+        	new L.LatLng(43.1, -93.18),
+        	new L.LatLng(43.05, -93.0)
+        ];
+        */
+
+        //Syntax option 3 for Geographic Coordinates
+        var latlngs = [
+            [43.01, -93.1],
+            [43.1, -93.18],
+            [43.05, -93.0]
+        ];
+
+        var pathOptions = {
+            stroke: true, //stroke visibility
+            weight: 1, //stoke thickness
+            color: 'blue', //hexidecimal or named stoke color
+            opacity: 0.5, //stroke opacity 0 - 1
+            //for polygons
+            fill: true, //fill polygon with color
+            fillColor: 'yellow', //hexidecimal or named fill color
+            fillOpacity: 0.5, //fill fill opacity 0 - 1
+            //other options
+            dashArray: '5,3' //dash pattern used by stroke
+
+        };
+
+        var polyline = L.polyline(latlngs, pathOptions).addTo(map);
+
+
+        var latlngs2 = [
+            [43.01, -92.9],
+            [43.1, -92.98],
+            [43.05, -92.8]
+        ];
+
+        var polygon = L.polygon(latlngs2, pathOptions).addTo(map);
+    </script>
