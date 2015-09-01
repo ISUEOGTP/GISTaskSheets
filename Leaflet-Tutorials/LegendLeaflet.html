@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+	<meta name="description" content="Leaflet Tasksheet Adding a legend">
+	<title>Leaflet API: Getting Started</title>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<style id="jsbin-css">
+ #map {
+	 height: 400px;
+	 width: 400px;
+	 margin: 0;
+	 padding: 0;
+}
+
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.9;
+}
+.info {
+    padding: 6px 8px;
+    font: 10px/18px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+
+
+
+</style>
+</head>
+
+<body>
+    <div id="map"></div>
+<script id="jsbin-javascript">
+var map = L.map('map').setView([43, -93], 7);
+
+// add an OpenStreetMap tile layer
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	attribution: 'The map contributors',
+	maxZoom: 18
+}).addTo(map);
+
+//data
+var myPoints = [
+		["22",42.99497,-93.50808],
+   	["20",42.10269,-93.23696],
+		["15",43.2,-93.1],
+		["19",42.98585,-94.50659],
+		["12",42.93163,-93.81726],
+		["5",42.5183,-93.89],
+		["14",42.42079,-93.5783],
+		["23",42.08414,-93.96632],
+		["6",42.51285,-93.0],
+    ["14",42.013997,-93.635769],
+];
+
+//used by color and legend functions to define data breaks 
+var breaks = [17, 14, 0]; 
+var labels = ['good', 'fair', 'poor'];
+
+//set color of marker function
+function getColor(d) {
+	return  d >= breaks[0] ? 'green' :
+	d >= breaks[1] ? "#ffff00" :
+	"red";
+}
+
+for (var i = 0; i < myPoints.length; i++) {
+	marker = new L.circleMarker([myPoints[i][1],myPoints[i][2]], {
+	//radius: myPoints[i][0]/2,
+	fillColor: getColor(myPoints[i][0]), 
+	color: "#000",
+	stroke: true,
+	weight: 1,
+	opacity: 1,
+	fillOpacity: 0.9   
+})
+.bindPopup("Value: "+myPoints[i][0]) //note there is no comma here
+.addTo(map);
+}
+
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info legend');
+
+    // loop through items and generate legend items each
+    for (var i = 0; i < breaks.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor(breaks[i]) + ' "></i> ' +
+            labels[i] + (breaks ? '' +  '<br>' : '');
+    }
+    return div;
+};
+
+legend.addTo(map);
+</script>
+</body>
+
+</html>
