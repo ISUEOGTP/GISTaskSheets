@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Leaflet API: Layer Control</title>
+    <meta name="description" content="Leaflet tasksheet adding data layers" />
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+ 
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+    <style>
+      html,
+      body,
+      #map {
+        height: 480px;
+        margin: 0;
+        padding: 0;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+    <div id="map"></div>
+
+    <script>
+      //Base Layers
+      var OSM = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 18
+      });
+      var MapQuestOpen_Aerial = L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
+        attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency',
+        subdomains: '1234'
+      });
+      var nexrad = new L.tileLayer.wms("http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi", {
+        layers: 'nexrad-n0r',
+        format: 'image/png',
+        transparent: true,
+        attribution: "Weather data &copy; 2015 IEM Nexrad"
+      });
+
+      //create the map
+      var map = L.map('map', {
+        center: new L.LatLng(44, -91),
+        zoom: 5,
+        layers: [OSM, nexrad]
+      });
+      //layer control
+      var baseMaps = {
+        "OpenStreetMap": OSM,
+        "MapQuestOpen Aerial": MapQuestOpen_Aerial
+      };
+      var overlayMaps = {
+        "Radar": nexrad
+      };
+      L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+    </script>
+  </body>
+
+</html>
