@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>D3.js Task Sheet</title>
+	<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+
+	<style>
+    </style>
+
+</head>
+<body>
+	<script type="text/javascript">
+		//Width and height
+		var width = 800;
+		var height = 500;
+			
+	//Uncomment one projection at a time to view the differences
+	//of shape, size and extent of each projection. 
+	
+		//Albers USA - View of U.S. (includes alaska/hawaii)
+		var projection = d3.geo.albersUsa() 
+    		.translate([width / 2, height / 2])
+			.scale(1000);
+	/*
+	
+		//Albers Equal-Area Conic - View of U.S.
+		var projection = d3.geo.albers()
+			.translate([width / 2, height / 2])
+			.scale(1000);	
+		
+		//Albers Equal-Area Conic - View of Iowa
+		var projection = d3.geo.albers()
+			.rotate([93, 0])
+			.center([0, 42])
+			.translate([width / 2, height / 2])
+			.scale(8000);			
+	
+		//Lambert Conformal Conic - View of U.S.
+		var projection = d3.geo.conicConformal()
+			.rotate([93, 0])
+			.center([0, 39])
+			.translate([width / 2 + 5, height / 2 + 15])
+			.scale([1100]);	
+		
+		//View of Iowa
+		var projection = d3.geo.conicConformal()
+			.rotate([93, 0])
+			.center([0, 42])
+			.translate([width / 2 + 5, height / 2 + 15])
+			.scale([8000]);
+		
+		//View of World - Spherical Mercator
+		var projection = d3.geo.mercator()
+			.translate([width / 2, height / 2])
+			.scale((width + 1) / 2 / Math.PI);		
+		
+		//View of Iowa - Transverse Mercator 
+		var projection = d3.geo.transverseMercator()
+			.translate([width / 2, height / 2])
+			.rotate([93 + 20 / 60, -41 - 60 / 60])
+			.scale(8000);
+		*/	
+	
+		//Define path generator
+		var path = d3.geo.path()
+			.projection(projection);
+
+		//Create SVG element
+		var svg = d3.select("body")
+			.append("svg")
+			.attr("width", width)
+			.attr("height", height)
+
+		// This order defines the draw order on the map
+		var usCountiesJSON = svg.append("g")
+		var usStatesJSON = svg.append("g")
+			
+		//Load in GeoJSON data
+		d3.json("USCounties_tasksheet.json", function(json) {
+			usCountiesJSON.selectAll("path")
+				.data(json.features)
+				.enter()
+				.append("path")
+				.attr("d", path)
+				.style("stroke", "black")
+				.style("stroke-width", [.3])
+				.style("fill", "white")
+				.style("fill-opacity", 0.5);
+
+		});
+
+		d3.json("USStates_tasksheet.json", function(json) {
+			usStatesJSON.selectAll("path")
+				.data(json.features)
+				.enter()
+				.append("path")
+				.attr("d", path)
+				.style("stroke", "black")
+				.style("stroke-width", [2])
+				.style("fill", "white")
+				.style("fill-opacity", 0.5);
+
+		});
+	</script>
+</body>
+
+</html>
