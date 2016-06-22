@@ -77,7 +77,7 @@
 		var usStatesJSON = svg.append("g")
 			
 		//Load in GeoJSON data
-		d3.json("USCounties_tasksheet.json", function(json) {
+		d3.json("US_Counties.json", function(json) {
 			usCountiesJSON.selectAll("path")
 				.data(json.features)
 				.enter()
@@ -90,7 +90,7 @@
 
 		});
 
-		d3.json("USStates_tasksheet.json", function(json) {
+		d3.json("US_States.json", function(json) {
 			usStatesJSON.selectAll("path")
 				.data(json.features)
 				.enter()
