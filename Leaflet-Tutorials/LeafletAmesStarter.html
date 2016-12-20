@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta name="description" content="Leaflet - Ames Starter Map" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #CAC7A7;
+      }
+
+      #copyrightLicense {
+        font-size: x-small;
+        padding: 5px;
+        background-color: #C8102E;
+        color: white;
+        text-align: center
+      }
+
+      #copyrightLicense a {
+        color: white;
+      }
+
+      #map {
+        height: 400px;
+        margin: 0;
+        padding: 0;
+      }
+
+    </style>
+
+    <script>
+      console.clear();
+
+      //Base layers and overlays
+      var OSM = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 18
+      });
+
+      var OCM = L.tileLayer(
+        'http://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors & <a href="http://thunderforest.com/">Thunderforest</a>',
+          maxZoom: 18,
+        });
+
+      var ortho_1930 = L.tileLayer.wms("http://ortho.gis.iastate.edu/arcgis/services/ortho/ortho_1930/ImageServer/WMSServer", {
+        layers: 'ortho_1930',
+        format: 'image/png',
+        transparent: true,
+        attribution: "Iowa State University GIS Facility &copy; 2016, Iowa DNR"
+      });
+
+      var naip_2013_nc = L.tileLayer.wms("http://ortho.gis.iastate.edu/arcgis/services/ortho/naip_2013_nc/ImageServer/WMSServer", {
+        layers: 'naip_2013_nc',
+        format: 'image/png',
+        transparent: true,
+        attribution: "Iowa State University GIS Facility &copy; 2016, USDA NAIP 2013"
+      });
+
+      var nexrad = new L.tileLayer.wms("http://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi", {
+        layers: 'nexrad-n0r-900913',
+        format: 'image/png',
+        transparent: true,
+        attribution: "Weather data &copy; 2012 IEM Nexrad"
+      });
+
+
+
+      //create the maps
+      var map = L.map('map', {
+        center: new L.LatLng(42.0, -93.6208),
+        zoom: 14,
+        layers: [OSM]
+      });
+
+      //layer control
+      var baseMaps = {
+        "OpenStreetMap": OSM,
+        "Open Cycle Map": OCM,
+        "1930 Aerial": ortho_1930,
+        "2013 Aerial": naip_2013_nc
+      };
+
+      var overlayMaps = {
+        "Radar": nexrad
+      };
+
+      L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+    </script>
+
+  </head>
+
+  <body>
+    <div id="map"></div>
+
+
+    <br>
+    <div id="copyrightLicense">
+
+      <span class="copyright">GIS Tasksheet tutorial code developed by Professor <a href="https://www.linkedin.com/in/christopher-seeger-asla-gisp-018224a" target="_blank">Christopher J. Seeger</a> (Twitter: <a href="https://twitter.com/cjseeger_isu" target="_blank">cjseeger_isu</a>, GitHub: <a href="https://github.com/cjseeger" target="_blank">cjseeger</a>), Iowa State University Extension and Outreach. ©2016. This work is licensed under a <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons License: Attribution 3.0 Unported</a>.</span>
+  </body>
+
+</html>
