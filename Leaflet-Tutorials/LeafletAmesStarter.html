@@ -4,9 +4,11 @@
   <head>
     <meta name="description" content="Leaflet - Ames Starter Map" />
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 
-    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+
+	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+
 
     <style>
       html,
@@ -32,6 +34,7 @@
       }
 
       #map {
+	    width: 100%px;
         height: 400px;
         margin: 0;
         padding: 0;
@@ -39,7 +42,19 @@
 
     </style>
 
-    <script>
+
+
+  </head>
+
+  <body>
+    <div id="map"></div>
+
+    <div id="copyrightLicense">
+
+      <span class="copyright">GIS Tasksheet tutorial code developed by Professor <a href="https://www.linkedin.com/in/christopher-seeger-asla-gisp-018224a" target="_blank">Christopher J. Seeger</a> (Twitter: <a href="https://twitter.com/cjseeger_isu" target="_blank">cjseeger_isu</a>, GitHub: <a href="https://github.com/cjseeger" target="_blank">cjseeger</a>), Iowa State University Extension and Outreach. ©2017. This work is licensed under a <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons License: Attribution 3.0 Unported</a>.</span>
+  </body>
+
+      <script>
       console.clear();
 
       //Base layers and overlays
@@ -48,6 +63,7 @@
         maxZoom: 18
       });
 
+/*
       var OCM = L.tileLayer(
         'http://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors & <a href="http://thunderforest.com/">Thunderforest</a>',
@@ -74,6 +90,7 @@
         transparent: true,
         attribution: "Weather data &copy; 2012 IEM Nexrad"
       });
+*/
 
 
 
@@ -83,13 +100,15 @@
         zoom: 14,
         layers: [OSM]
       });
-
+/*
       //layer control
       var baseMaps = {
         "OpenStreetMap": OSM,
+
         "Open Cycle Map": OCM,
         "1930 Aerial": ortho_1930,
         "2013 Aerial": naip_2013_nc
+
       };
 
       var overlayMaps = {
@@ -97,19 +116,8 @@
       };
 
       L.control.layers(baseMaps, overlayMaps).addTo(map);
-
+*/
     </script>
 
-  </head>
-
-  <body>
-    <div id="map"></div>
-
-
-    <br>
-    <div id="copyrightLicense">
-
-      <span class="copyright">GIS Tasksheet tutorial code developed by Professor <a href="https://www.linkedin.com/in/christopher-seeger-asla-gisp-018224a" target="_blank">Christopher J. Seeger</a> (Twitter: <a href="https://twitter.com/cjseeger_isu" target="_blank">cjseeger_isu</a>, GitHub: <a href="https://github.com/cjseeger" target="_blank">cjseeger</a>), Iowa State University Extension and Outreach. ©2016. This work is licensed under a <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons License: Attribution 3.0 Unported</a>.</span>
-  </body>
 
 </html>
