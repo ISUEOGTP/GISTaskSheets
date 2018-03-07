@@ -2,10 +2,9 @@
 <html>
 
 <head>
-    <title>Leaflet – Markers as content styled circle markers</title>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-    
-    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <title>Mapping API's: Leaflet - Content Styled Circle Markers</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -68,8 +67,6 @@
             }]
         };
 
-
-
         //Generate Map
         var map = L.map('map').setView([41.3, -93.1], 11);
 
@@ -86,7 +83,6 @@
                 d == 'tree' ? "#0000ff" : //blue
                 "#FFFFFF"; //white
         }
-
 
         //load data
         L.geoJson(myJSON, {
@@ -106,6 +102,5 @@
     </script>
 
 </body>
-
 
 </html>
