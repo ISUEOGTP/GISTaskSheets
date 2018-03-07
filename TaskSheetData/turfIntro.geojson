@@ -1,0 +1,79 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -93.65917682647705,
+              42.07787144344134
+            ],
+            [
+              -93.63999366760254,
+              42.07787144344134
+            ],
+            [
+              -93.63999366760254,
+              42.09252225064463
+            ],
+            [
+              -93.65917682647705,
+              42.09252225064463
+            ],
+            [
+              -93.65917682647705,
+              42.07787144344134
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.64964962005615,
+          42.084846923594334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "location": "COD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.65321159362793,
+          42.028670955879136
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "location": "ada hayden bridge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -93.62510204315186,
+          42.068091739696065
+        ]
+      }
+    }
+  ]
+}
