@@ -41,7 +41,7 @@
 
 
         function addPopups(feature, layer) {
-            layer.bindPopup("Name: " + feature.properties.FACILITY_N + "<BR> City: " + feature.properties.CITY)
+            layer.bindPopup("Name: " + feature.properties.FACILITY_N + "<BR> City: " + feature.properties.CITY);
         }
 
 
@@ -52,7 +52,7 @@
                 //FACILITY_T == 'HELIPORT'
                 //OWNER_TYPE == 'PU'
                 if (feature.properties.FACILITY_T == 'HELIPORT') {
-                    return 'true'
+                    return 'true';
                 }
             }
 
