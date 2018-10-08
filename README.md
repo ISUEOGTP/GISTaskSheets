@@ -10,13 +10,4 @@ The ISUEOGTP is administered through the Communities and Economic Development Ex
 
 To find a full list of task sheets, visit: (http://www.extension.iastate.edu/communities/gis/quicktasksheets)
 
-[Subscribe] (http://www.extension.iastate.edu/communities/GIS/subscribe) to the ISU Geospatial Technology Newsletter If you would like to stay notified on upcoming trainings, new Task Sheets and other Geospatial Technology Program news.
-
-
-```javascript
-function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
-  }
-}
-```
+[Subscribe](http://www.extension.iastate.edu/communities/GIS/subscribe) to the ISU Geospatial Technology Newsletter If you would like to stay notified on upcoming trainings, new Task Sheets and other Geospatial Technology Program news.
