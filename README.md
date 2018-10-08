@@ -1,12 +1,22 @@
-Task Sheets
+Iowa State University Extension and Outreach Geospatial Technology Program
 =============
 
-The Iowa State University Extension and Outreach Geospatial Technology Program (ISUEOGTP) is administered through the Communities and Economic Development Extension office. The ISUEPGTP's mission is to provide training opportunities to those that are interested in learning geospatial technologies necessary for analyzing and visualizing data. Training opportunities include:
+This repository is designed to host data and web mapping scripts utilized in the Task Sheets and training workshops offered by the [Iowa State University Extension and Outreach Geospatial Technology Program] (https://www.extension.iastate.edu/communities/gis) (ISUEOGTP).
+
+The ISUEOGTP is administered through the Communities and Economic Development Extension office. The ISUEPGTP's mission is to provide training opportunities to those that are interested in learning geospatial technologies necessary for analyzing and visualizing data. Training opportunities include:
 - Essentials of ArcGIS Tutorial Series, which provides hands-on introductory instruction to ArcGIS software, 
-- task sheets that act as a supplement to the tutorial series by providing a quick how-to for a wide variety of GIS and mapping processes
-- Introduction to QGIS hands-on workshop.
+- Essentials of QGIS Tutorials Series, hands-on workshop introducing QGIS and other open-source geospatial tools.
+- Task Sheets that supplement workshop tutorials by providing quick 'how-to-do' for a wide variety of geospatial, webmapping, coding and data visulization tasks.
 
-This repository is designed to host data and web mapping scripts described in the Task Sheets. To find a full list of task sheets, visit: [link] 
-(http://www.extension.iastate.edu/communities/gis/quicktasksheets)
+To find a full list of task sheets, visit: (http://www.extension.iastate.edu/communities/gis/quicktasksheets)
 
-<a href="http://www.extension.iastate.edu/communities/GIS/subscribe">Subscribe</a> to the ISU Geospatial Technology Newsletter If you would like to stay notified on upcoming trainings, new Task Sheets and other Geospatial Technology Program news.
+[Subscribe] (http://www.extension.iastate.edu/communities/GIS/subscribe) to the ISU Geospatial Technology Newsletter If you would like to stay notified on upcoming trainings, new Task Sheets and other Geospatial Technology Program news.
+
+
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
