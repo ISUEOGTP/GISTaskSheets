@@ -4,8 +4,8 @@
 <head>
     <meta name="description" content="Mapping API's: Leaflet - Custom Div Markers" />
     <title>Mapping API's: Leaflet - Custom Div Markers</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
 
 </head>
 <style>
@@ -45,12 +45,10 @@
         var map = L.map('map').setView([43, -93], 10);
 
         // add an OpenStreetMap tile layer
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: 'The map contributors',
             maxZoom: 18
         }).addTo(map);
-
-
 
         var marker1 = L.marker([43.05, -93.1], {
             icon: myDivIcon1,
