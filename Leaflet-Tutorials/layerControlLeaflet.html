@@ -31,11 +31,11 @@
         });
 //July 2019 - The following MapQuest URL is no longer supported as HTTPS endpoint and has been replaced with the ESRI WorldImagery tile layer.
 		
-*/		
+/*		
 		var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 });
-
+*/
         var nexrad = new L.tileLayer.wms("https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi", {
             layers: 'nexrad-n0r',
             format: 'image/png',
@@ -93,7 +93,7 @@
         //layer control
         var baseMaps = {
             "OpenStreetMap": OSM,
-            "ESRI Aerial": Esri_WorldImagery
+            "ESRI World Imagery": Esri_WorldImagery
         };
 
         var overlayMaps = {
