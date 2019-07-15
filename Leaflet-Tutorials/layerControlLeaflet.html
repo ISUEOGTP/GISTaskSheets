@@ -29,14 +29,9 @@
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
             maxZoom: 18
         });
-//July 2019 - The following is no longer supported and thus has been replaced with ESRI imagery
-        /*
-		var MapQuestOpen_Aerial = L.tileLayer('h', {
-            attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency',
-            subdomains: '1234'
-        });
-		*/
+//July 2019 - The following MapQuest URL is no longer supported as HTTPS endpoint and has been replaced with the ESRI WorldImagery tile layer.
 		
+*/		
 		var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 });
