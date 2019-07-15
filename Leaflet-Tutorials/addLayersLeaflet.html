@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 
   <head>
@@ -28,10 +28,21 @@
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 18
       });
-      var MapQuestOpen_Aerial = L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
-        attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency',
-        subdomains: '1234'
-      });
+		
+//July 2019 - The following MapQuest URL is no longer supported as HTTPS endpoint and has been replaced with the ESRI WorldImagery tile layer.
+		
+/*
+         var MapQuestOpen_Aerial = L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {		         /*
+ 		var MapQuestOpen_Aerial = L.tileLayer('h', {
+             attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency',		             attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency',
+             subdomains: '1234'		             subdomains: '1234'
+         });		         });
+ 		*/
+ 		
+ 		var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+ 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+ });
+		
       var nexrad = new L.tileLayer.wms("https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r.cgi", {
         layers: 'nexrad-n0r',
         format: 'image/png',
@@ -48,7 +59,7 @@
       //layer control
       var baseMaps = {
         "OpenStreetMap": OSM,
-        "MapQuestOpen Aerial": MapQuestOpen_Aerial
+        "ESRI  World Imnagery": Esri_WorldImagery
       };
       var overlayMaps = {
         "Radar": nexrad
