@@ -9,10 +9,10 @@
     <script src='https://raw.githubusercontent.com/profSeeger/leafletWorkshop/master/data/restaurants2.js'></script>
 
     <!-- Include Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
 
     <!-- Include Leaflet JavaScript -->
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 
     <!-- Include Turf JavaScript -->
     <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
