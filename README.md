@@ -8,6 +8,6 @@ The ISUEOGTP is administered through the Communities and Economic Development Ex
 - Essentials of QGIS Tutorials Series, hands-on workshop introducing QGIS and other open-source geospatial tools.
 - Task Sheets that supplement workshop tutorials by providing quick 'how-to-do' for a wide variety of geospatial, webmapping, coding and data visulization tasks.
 
-To find a full list of task sheets, visit: (http://www.extension.iastate.edu/communities/gis/quicktasksheets)
+To find a full list of task sheets, visit: (https://www.extension.iastate.edu/communities/gis-and-mapping-task-sheets)
 
 [Subscribe](http://www.extension.iastate.edu/communities/GIS/subscribe) to the ISU Geospatial Technology Newsletter If you would like to stay notified on upcoming trainings, new Task Sheets and other Geospatial Technology Program news.
