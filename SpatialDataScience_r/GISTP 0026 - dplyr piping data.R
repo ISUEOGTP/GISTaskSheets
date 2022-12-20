@@ -1,9 +1,8 @@
-#Spatial Data Science with R: Mutating and Piping Data with dplyr
-#Iowa State University Extension and Outreach-Spatial Data Science Task Sheets
-#URL to Task sheet: 
-#Last Updated: December 1, 2022; Jay Maxwell and Christopher J. Seeger
+# Iowa State University Extension and Outreach-Spatial Data Science Task Sheets
+# GISTP 00XX Spatial Data Science with R: Mutating and Piping Data with dplyr
+# Task sheet URL Perma Link goes here
+# Last Updated: December 20, 2022; Jay Maxwell and Christopher J. Seeger
 
-#The following code supports task sheet GISTP 00XX
 
 # Getting Started ----
 #Load packages - if they are not already installed.

@@ -1,18 +1,17 @@
-#Spatial Data Science with R: Filtering and Selecting data with dplyr
-#Iowa State University Extension and Outreach-Spatial Data Science Task Sheets
-#URL to Task sheet: 
-#Last Updated: November 30th, 2022; Jay Maxwell and Christopher J. Seeger
+# Iowa State University Extension and Outreach-Spatial Data Science Task Sheets
+# GISTP 00XX Spatial Data Science with R: Filtering and Selecting Data with dplyr
+# Task sheet URL Perma Link goes here
+# Last Updated: December 20, 2022; Jay Maxwell and Christopher J. Seeger
 
-#The following code supports tasksheet GISTP 00XX
 
-#Load packages
+# Getting Started ----
 install.packages("tidyverse")
 install.packages("usdata")
 
 #Load dplyr library
 library(dplyr)
 
-#Load usdata library, 
+#Load usdata library 
 library(usdata)
 
 #Get a glimpse of the county data set loaded as part of usdata library. 
@@ -20,6 +19,7 @@ library(usdata)
 #Optionally county_2019 includes 95 columns/variables. 
 glimpse(county)
 
+# Filtering and Arranging Data ----
 #Selecting only the Iowa counties and save into a new variable called iowa
 iowa <- filter(county, state=="Iowa")
 
@@ -44,6 +44,7 @@ iowa_decline_ordered <- arrange(iowa_decline, pop_change)
 #Adams County will appear at the top of the list having a value of -5.29
 glimpse(iowa_decline_ordered)
 
+# Selecting Data ----
 #use select to to pick only the columns of interest from a data set
 iowa_pop17 <- select(iowa, name, pop2017)
 
@@ -72,5 +73,3 @@ glimpse(iowa_pop)
 
 #run ?select to view more information about the select verb in the help pane
 ?select
-
-

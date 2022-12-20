@@ -1,11 +1,9 @@
-# Spatial Data Science with R: Installing Packages with RStudio
 # Iowa State University Extension and Outreach-Spatial Data Science Task Sheets
-# URL to Task sheet: 
-# Last Updated: December 15, 2022; Jay Maxwell and Christopher J. Seeger
+# GISTP 00XX Spatial Data Science with R: Installing Packages with RStudio
+# Task sheet URL Perma Link goes here
+# Last Updated: December 20, 2022; Jay Maxwell and Christopher J. Seeger
 
-#The following code supports task sheet GISTP 00XX
-
-
+# Section Title ----
 # install package devtools
 install.packages("devtools")
 
