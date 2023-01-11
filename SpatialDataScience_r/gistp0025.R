@@ -1,7 +1,7 @@
 # Iowa State University Extension and Outreach-Spatial Data Science Task Sheets
 # GISTP 0025 Spatial Data Science with R: Filtering and Selecting Data with dplyr
 # https://store.extension.iastate.edu/product/16607
-# Last Updated: December 20, 2022; Jay Maxwell and Christopher J. Seeger
+# Last Updated: January 11, 2022; Jay Maxwell and Christopher J. Seeger
 
 
 #### Getting Started ####
@@ -34,7 +34,8 @@ glimpse(iowa_decline)
 ## Arrange the rows based on pop_change
 iowa_decline_ordered <- arrange(iowa_decline, pop_change)
 glimpse(iowa_decline_ordered)
-
+iowa_decline_ordered2 <- arrange(iowa_decline, desc(pop_change))
+glimpse(iowa_decline_ordered2)
 
 
 #### Selecting Data ####
