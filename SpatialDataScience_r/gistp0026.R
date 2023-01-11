@@ -17,7 +17,7 @@ library(usdata)
 iowa <- filter(county, state=="Iowa")
 iowa2<- select(iowa, name, pop2010, pop2017)
 
-## Examine the county dataset in usdata
+## Examine the data subset
 glimpse(iowa2)
 
 
